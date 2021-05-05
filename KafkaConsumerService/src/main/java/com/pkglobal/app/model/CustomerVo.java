@@ -65,4 +65,38 @@ public class CustomerVo {
 				+ "]";
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + customerId;
+		result = prime * result + ((customerNumber == null) ? 0 : customerNumber.hashCode());
+		result = prime * result + ((payload == null) ? 0 : payload.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CustomerVo other = (CustomerVo) obj;
+		if (customerId != other.customerId)
+			return false;
+		if (customerNumber == null) {
+			if (other.customerNumber != null)
+				return false;
+		} else if (!customerNumber.equals(other.customerNumber))
+			return false;
+		if (payload == null) {
+			if (other.payload != null)
+				return false;
+		} else if (!payload.equals(other.payload))
+			return false;
+		return true;
+	}
+
 }

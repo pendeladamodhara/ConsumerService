@@ -3,6 +3,7 @@ package com.pkglobal.app.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Entity
@@ -16,6 +17,7 @@ public class ErrorLog {
 	private String errorType;
 	@Column(name = "ERROR_DESC")
 	private String errorDesc;
+	@Lob
 	private String payload;
 
 	/**
@@ -72,6 +74,12 @@ public class ErrorLog {
 	 */
 	public void setPayload(String payload) {
 		this.payload = payload;
+	}
+
+	@Override
+	public String toString() {
+		return "ErrorLog [errorid=" + errorid + ", errorType=" + errorType + ", errorDesc=" + errorDesc + ", payload="
+				+ payload + "]";
 	}
 
 }

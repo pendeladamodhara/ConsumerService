@@ -29,11 +29,8 @@ public class KafkaCustomerConsumer implements KafkaConsumer {
 	public void consumeCustomerMessage(String customerJson) {
 		CustomerRequest customer = ObjectMapperUtil.convertJsonToJavaObject(customerJson, CustomerRequest.class);
 		LOGGER.info("Payload received from kafka server {}", customerMaskConverter.convert(customer));
+		customerRepository.save(customerVoConverter.convert(customerJson, customer.getCustomerNumber()));
 
-		System.out.println(
-				customerRepository.save(customerVoConverter.convert(customerJson, customer.getCustomerNumber())));
-		// customerRepository.save(customerVoConverter.convert(customerJson,
-		// customer.getCustomerNumber()));
 	}
 
 }

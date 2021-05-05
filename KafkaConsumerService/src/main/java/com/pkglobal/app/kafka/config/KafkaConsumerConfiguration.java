@@ -36,13 +36,6 @@ public class KafkaConsumerConfiguration {
 		return new DefaultKafkaConsumerFactory<>(configs, new StringDeserializer(), new StringDeserializer());
 	}
 
-//	@Bean
-//	public ConcurrentKafkaListenerContainerFactory<String, String> customerKafkaListenerContainerFactory() {
-//		ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
-//		factory.setConsumerFactory(customerConsumerFactory());
-//		return factory;
-//	}
-
 	@Bean
 	public ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerFactory() {
 		ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
