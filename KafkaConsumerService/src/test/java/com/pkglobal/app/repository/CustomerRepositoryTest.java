@@ -12,9 +12,9 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.pkglobal.app.entity.Customer;
 import com.pkglobal.app.model.CustomerAddress;
 import com.pkglobal.app.model.CustomerRequest;
-import com.pkglobal.app.model.CustomerVo;
 
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
@@ -31,17 +31,17 @@ public class CustomerRepositoryTest {
 	 */
 	@Test
 	public void testSaveWhenValidCustomerVoPassedShouldInsertIntoDB() {
-		CustomerVo customerVo = getCustomerVoObject();
+		Customer customerVo = getCustomerVoObject();
 		customerVo = testEntityManager.persist(customerVo);
-		CustomerVo customerPayload = customerRepository.findById(customerVo.getCustomerId()).get();
+		Customer customerPayload = customerRepository.findById(customerVo.getCustomerId()).get();
 		assertNotNull(customerVo);
 		assertNotNull(customerPayload);
 		assertThat(customerPayload).isEqualTo(customerVo);
 
 	}
 
-	private CustomerVo getCustomerVoObject() {
-		CustomerVo customerVo = new CustomerVo();
+	private Customer getCustomerVoObject() {
+		Customer customerVo = new Customer();
 		customerVo.setCustomerNumber("C0000123");
 		customerVo.setPayload(getCustomerJson(getCustomerRequest()));
 		return customerVo;

@@ -16,9 +16,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pkglobal.app.converter.CustomerMaskConverter;
 import com.pkglobal.app.converter.CustomerVoConverter;
+import com.pkglobal.app.entity.Customer;
 import com.pkglobal.app.model.CustomerAddress;
 import com.pkglobal.app.model.CustomerRequest;
-import com.pkglobal.app.model.CustomerVo;
 import com.pkglobal.app.repository.CustomerRepository;
 
 @RunWith(SpringRunner.class)
@@ -83,8 +83,8 @@ public class KafkaCustomerConsumerTest {
 		}
 	}
 
-	public CustomerVo getCustomerVoObject() {
-		CustomerVo customerVo = new CustomerVo();
+	public Customer getCustomerVoObject() {
+		Customer customerVo = new Customer();
 		customerVo.setCustomerNumber("C000000001");
 		customerVo.setPayload(getCustomerJson(getCustomerRequest()));
 		return customerVo;

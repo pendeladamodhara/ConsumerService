@@ -1,4 +1,4 @@
-package com.pkglobal.app.model;
+package com.pkglobal.app.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "AUDIT_LOG")
-public class CustomerVo {
+public class Customer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int customerId;
@@ -83,7 +83,7 @@ public class CustomerVo {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		CustomerVo other = (CustomerVo) obj;
+		Customer other = (Customer) obj;
 		if (customerId != other.customerId)
 			return false;
 		if (customerNumber == null) {

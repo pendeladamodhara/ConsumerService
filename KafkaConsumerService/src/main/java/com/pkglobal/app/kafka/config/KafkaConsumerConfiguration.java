@@ -18,13 +18,11 @@ import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.retry.policy.SimpleRetryPolicy;
 import org.springframework.retry.support.RetryTemplate;
 
-import com.pkglobal.app.consumer.KafkaCustomerConsumer;
-
 @Configuration
 @EnableKafka
 public class KafkaConsumerConfiguration {
 
-	public static final Logger LOGGER = LoggerFactory.getLogger(KafkaCustomerConsumer.class);
+	public static final Logger LOGGER = LoggerFactory.getLogger(KafkaConsumerConfiguration.class);
 
 	@Bean
 	public ConsumerFactory<String, String> customerConsumerFactory() {

@@ -4,23 +4,19 @@ import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import io.swagger.annotations.ApiModelProperty;
-
 /**
  * CustomerRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2021-04-26T14:41:51.027Z")
+
 public class CustomerRequest {
 
 	@JsonProperty("customerNumber")
-
 	private String customerNumber = null;
 
 	@JsonProperty("firstName")
 	private String firstName = null;
 
 	@JsonProperty("lastName")
-
 	private String lastName = null;
 
 	@JsonProperty("birthDate")
@@ -53,7 +49,6 @@ public class CustomerRequest {
 	 * 
 	 * @return customerNumber
 	 **/
-	@ApiModelProperty(required = true, value = "Customer Number")
 	public String getCustomerNumber() {
 		return customerNumber;
 	}
@@ -72,8 +67,6 @@ public class CustomerRequest {
 	 * 
 	 * @return firstName
 	 **/
-	@ApiModelProperty(required = true, value = "Customer First Name")
-
 	public String getFirstName() {
 		return firstName;
 	}
@@ -92,7 +85,6 @@ public class CustomerRequest {
 	 * 
 	 * @return lastName
 	 **/
-	@ApiModelProperty(required = true, value = "Customer Last Name")
 	public String getLastName() {
 		return lastName;
 	}
@@ -111,7 +103,6 @@ public class CustomerRequest {
 	 * 
 	 * @return birthDate
 	 **/
-	@ApiModelProperty(required = true, value = "Customer Date of Birth")
 	public String getBirthDate() {
 		return birthDate;
 	}
@@ -130,7 +121,6 @@ public class CustomerRequest {
 	 * 
 	 * @return country
 	 **/
-	@ApiModelProperty(required = true, value = "Customer Country Name")
 	public String getCountry() {
 		return country;
 	}
@@ -149,7 +139,6 @@ public class CustomerRequest {
 	 * 
 	 * @return countryCode
 	 **/
-	@ApiModelProperty(required = true, value = "Customer Country Code")
 	public String getCountryCode() {
 		return countryCode;
 	}
@@ -168,7 +157,6 @@ public class CustomerRequest {
 	 * 
 	 * @return mobileNumber
 	 **/
-	@ApiModelProperty(required = true, value = "Customer Mobile Number")
 	public String getMobileNumber() {
 		return mobileNumber;
 	}
@@ -187,7 +175,6 @@ public class CustomerRequest {
 	 * 
 	 * @return email
 	 **/
-	@ApiModelProperty(required = true, value = "Customer Email ")
 	public String getEmail() {
 		return email;
 	}
@@ -214,7 +201,6 @@ public class CustomerRequest {
 	 * 
 	 * @return customerAddress
 	 **/
-	@ApiModelProperty(required = true, value = "")
 	public CustomerAddress getCustomerAddress() {
 		return customerAddress;
 	}

@@ -3,11 +3,13 @@ package com.pkglobal.app.consumer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
 import com.pkglobal.app.converter.CustomerMaskConverter;
 import com.pkglobal.app.converter.CustomerVoConverter;
+import com.pkglobal.app.exception.GeneralException;
 import com.pkglobal.app.model.CustomerRequest;
 import com.pkglobal.app.repository.CustomerRepository;
 import com.pkglobal.app.util.ObjectMapperUtil;
@@ -16,6 +18,7 @@ import com.pkglobal.app.util.ObjectMapperUtil;
 public class KafkaCustomerConsumer implements KafkaConsumer {
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(KafkaCustomerConsumer.class);
+
 	@Autowired
 	private CustomerMaskConverter customerMaskConverter;
 	@Autowired
@@ -25,11 +28,15 @@ public class KafkaCustomerConsumer implements KafkaConsumer {
 	CustomerVoConverter customerVoConverter;
 
 	@Override
-	@KafkaListener(groupId = "customer-1", topics = "customer")
+	@KafkaListener(groupId = "#{'${groupId}'}", topics = "#{'${topic}'}")
 	public void consumeCustomerMessage(String customerJson) {
 		CustomerRequest customer = ObjectMapperUtil.convertJsonToJavaObject(customerJson, CustomerRequest.class);
 		LOGGER.info("Payload received from kafka server {}", customerMaskConverter.convert(customer));
-		customerRepository.save(customerVoConverter.convert(customerJson, customer.getCustomerNumber()));
+		try {
+			customerRepository.save(customerVoConverter.convert(customerJson, customer.getCustomerNumber()));
+		} catch (DataAccessException e) {
+			throw new GeneralException("Error occurred while saving customer into DB");
+		}
 
 	}
 

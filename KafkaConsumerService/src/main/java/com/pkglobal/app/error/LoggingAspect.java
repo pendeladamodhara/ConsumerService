@@ -1,4 +1,4 @@
-package com.pkglobal.app.error.log;
+package com.pkglobal.app.error;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterThrowing;
@@ -8,14 +8,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.pkglobal.app.model.ErrorLog;
+import com.pkglobal.app.entity.ErrorLog;
 import com.pkglobal.app.repository.ErrorLogRepository;
 
 @Aspect
 @Component
-public class LoggingAdvice {
+public class LoggingAspect {
 
-	public static final Logger LOGGER = LoggerFactory.getLogger(LoggingAdvice.class);
+	public static final Logger LOGGER = LoggerFactory.getLogger(LoggingAspect.class);
 
 	@Autowired
 	private ErrorLogRepository errorLogRepository;

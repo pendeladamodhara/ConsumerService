@@ -1,4 +1,4 @@
-package com.pkglobal.app.model;
+package com.pkglobal.app.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

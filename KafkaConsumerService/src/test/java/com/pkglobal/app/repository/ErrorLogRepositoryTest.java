@@ -12,9 +12,9 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.pkglobal.app.entity.ErrorLog;
 import com.pkglobal.app.model.CustomerAddress;
 import com.pkglobal.app.model.CustomerRequest;
-import com.pkglobal.app.model.ErrorLog;
 
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
