@@ -1,7 +1,7 @@
 package com.pkglobal.app.consumer;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -17,7 +17,7 @@ import com.pkglobal.app.util.ObjectMapperUtil;
 @Service
 public class KafkaCustomerConsumer implements KafkaConsumer {
 
-	public static final Logger LOGGER = LoggerFactory.getLogger(KafkaCustomerConsumer.class);
+	private static Logger LOGGER = LogManager.getLogger(KafkaCustomerConsumer.class);
 
 	@Autowired
 	private CustomerMaskConverter customerMaskConverter;
